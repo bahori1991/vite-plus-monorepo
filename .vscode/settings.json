@@ -8,6 +8,14 @@
   "oxc.path.oxlint": "/home/appuser/.vite-plus/current/node_modules/.bin/oxlint",
   "oxc.path.oxfmt": "/home/appuser/.vite-plus/current/node_modules/.bin/oxfmt",
   "oxc.fmt.configPath": "./vite.config.ts",
+  "files.readonlyInclude": {
+    "**/node_modules/**": true,
+    "**/.tanstack/**": true,
+    "**/routeTree.gen.ts": true,
+    "**/dist/**": true,
+    "**/.vite-hooks/_/**": true,
+    "**/pnpm-lock.yaml": true
+  },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
@@ -15,25 +23,24 @@
     "**/node_modules/*/**": true,
     "**/dist/**": true,
     "**/build/**": true,
-    "**/.vscode/**": true,
+    "**/.tanstack/**": true,
     "**/coverage/**": true,
     "**/tmp/**": true,
     "**/.cache/**": true
   },
   "files.exclude": {
     "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true,
     "**/.tanstack": true,
+    "**/.vite-hooks/_": true,
     "**/dist": true,
-    "**/build": true
+    "**/build": true,
+    "**/.pnpm-store": true
   },
   "search.exclude": {
     "**/node_modules": true,
-    "**/bower_components": true,
     "**/*.code-search": true,
     "**/dist": true,
     "**/build": true,

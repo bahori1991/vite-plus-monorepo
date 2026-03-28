@@ -6,6 +6,9 @@
     "**/.tanstack/**",
     "**/.git/**",
     "**/dist/**",
-    "*.log"
+    "**/.cursor/rules/**",
+    "**/*.json",
+    "*.log",
+    ".gitignore"
   ]
 }
