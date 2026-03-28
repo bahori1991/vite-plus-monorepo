@@ -1,0 +1,11 @@
+{
+  "ignorePaths": [
+    ".devcontainer/**",
+    ".vscode/**",
+    "**/node_modules/**",
+    "**/.tanstack/**",
+    "**/.git/**",
+    "**/dist/**",
+    "*.log"
+  ]
+}

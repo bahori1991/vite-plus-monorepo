@@ -7,5 +7,37 @@
   },
   "oxc.path.oxlint": "/home/appuser/.vite-plus/current/node_modules/.bin/oxlint",
   "oxc.path.oxfmt": "/home/appuser/.vite-plus/current/node_modules/.bin/oxfmt",
-  "oxc.fmt.configPath": "./vite.config.ts"
+  "oxc.fmt.configPath": "./vite.config.ts",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.hg/store/**": true,
+    "**/node_modules/*/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.vscode/**": true,
+    "**/coverage/**": true,
+    "**/tmp/**": true,
+    "**/.cache/**": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.tanstack": true,
+    "**/dist": true,
+    "**/build": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.tanstack": true,
+    "**/coverage": true
+  }
 }

@@ -14,6 +14,11 @@
     3000,
     8080
   ],
+  "portsAttributes": {
+    "3000": { "label": "Frontend" },
+    "8080": { "label": "Backend" },
+    "32768-60999": { "onAutoForward": "ignore" }
+  },
   "remoteEnv": {
     "SSH_AUTH_SOCK": "/home/appuser/ssh-agent"
   },
@@ -32,10 +37,17 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "bradlc.vscode-tailwindcss",
         "christian-kohler.npm-intellisense",
         "christian-kohler.path-intellisense",
-        "bradlc.vscode-tailwindcss",
-        "void-zero.vite-plus-extension-pack"
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens",
+        "vivaxy.vscode-conventional-commits",
+        "void-zero.vite-plus-extension-pack",
+        "yzhang.markdown-all-in-one"
       ]
     }
   }

@@ -7,14 +7,14 @@ ENV TZ=Asia/Tokyo
 RUN apt update && \
     apt upgrade -y && \
     apt install -y --no-install-recommends \
-      git \
-      tzdata \
-      bash-completion \
-      openssh-client \
-      curl \
-      xz-utils \
-      ca-certificates \
-      dumb-init && \
+        git \
+        tzdata \
+        bash-completion \
+        openssh-client \
+        curl \
+        xz-utils \
+        ca-certificates \
+        dumb-init && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
