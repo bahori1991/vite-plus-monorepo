@@ -1,0 +1,53 @@
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Tokyo
+
+# セキュリティ更新を含むシステムパッケージの更新
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y --no-install-recommends \
+      git \
+      tzdata \
+      bash-completion \
+      openssh-client \
+      curl \
+      xz-utils \
+      ca-certificates \
+      dumb-init && \
+    apt autoremove -y && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# 既存の ubuntu ユーザーを削除
+RUN userdel -r ubuntu || true
+
+# non-root ユーザーを作成
+RUN groupadd -g 1001 appuser && \
+    useradd -u 1001 -g appuser -s /bin/bash -m appuser
+
+# 作業ディレクトリを作成して権限を付与
+RUN mkdir -p /home/appuser/workspace && \
+    chown -R appuser:appuser /home/appuser/workspace
+
+# 日本時間に設定（コンテナでは timedatectl は使わない）
+RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
+    echo "${TZ}" > /etc/timezone
+
+# vite.plusをインストール
+ENV VITE_PLUS_HOME=/home/appuser/.vite-plus
+ENV PATH="${VITE_PLUS_HOME}/bin:${PATH}"
+RUN curl -fsSL https://vite.plus | bash
+
+# 以降は appuser で動作させる
+USER appuser
+
+# login shell / sh -l でも vite-plus の PATH 等を有効にする
+RUN grep -qF '. "$HOME/.vite-plus/env"' /home/appuser/.profile 2>/dev/null || \
+    echo '. "$HOME/.vite-plus/env"' >> /home/appuser/.profile
+
+# 作業ディレクトリの設定
+WORKDIR /home/appuser/workspace
+
+# デフォルト入口コマンド
+ENTRYPOINT [ "dumb-init", "--" ]

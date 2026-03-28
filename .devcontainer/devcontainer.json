@@ -1,0 +1,42 @@
+{
+  "name": "vite-plus + monorepo",
+  "dockerComposeFile": ["docker-compose.yml"],
+  "service": "app",
+  "remoteUser": "appuser",
+  "updateRemoteUserUID": true,
+  "workspaceFolder": "/home/appuser/workspace",
+  "mounts": [
+    "source=${localEnv:HOME}/.bashrc,target=/home/appuser/.bashrc,type=bind",
+    "source=${localEnv:SSH_AUTH_SOCK},target=/home/appuser/ssh-agent,type=bind",
+    "source=${localWorkspaceFolder},target=/home/appuser/workspace,type=bind,consistency=cached"
+  ],
+  "forwardPorts": [
+    3000,
+    8080
+  ],
+  "remoteEnv": {
+    "SSH_AUTH_SOCK": "/home/appuser/ssh-agent"
+  },
+  "containerEnv": {
+    "DATABASE_URL": "postgresql://user:password@db:5432/db",
+    "NODE_ENV": "development",
+    "SSH_AUTH_SOCK": "/home/appuser/ssh-agent",
+    "TZ": "Asia/Tokyo",
+    "PGTZ": "Asia/Tokyo",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "bradlc.vscode-tailwindcss",
+        "void-zero.vite-plus-extension-pack"
+      ]
+    }
+  }
+}

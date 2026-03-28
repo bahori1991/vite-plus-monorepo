@@ -1,0 +1,11 @@
+{
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "explicit"
+  },
+  "oxc.path.oxlint": "/home/appuser/.vite-plus/current/node_modules/.bin/oxlint",
+  "oxc.path.oxfmt": "/home/appuser/.vite-plus/current/node_modules/.bin/oxfmt",
+  "oxc.fmt.configPath": "./vite.config.ts"
+}
