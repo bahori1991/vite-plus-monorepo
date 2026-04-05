@@ -5,9 +5,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.oxc": "explicit"
   },
+
   "oxc.path.oxlint": "/home/appuser/.vite-plus/current/node_modules/.bin/oxlint",
   "oxc.path.oxfmt": "/home/appuser/.vite-plus/current/node_modules/.bin/oxfmt",
   "oxc.fmt.configPath": "./vite.config.ts",
+
   "files.readonlyInclude": {
     "**/node_modules/**": true,
     "**/.tanstack/**": true,
@@ -16,6 +18,7 @@
     "**/.vite-hooks/_/**": true,
     "**/pnpm-lock.yaml": true
   },
+
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
@@ -28,6 +31,7 @@
     "**/tmp/**": true,
     "**/.cache/**": true
   },
+
   "files.exclude": {
     "**/.git": true,
     "**/.DS_Store": true,
@@ -39,6 +43,7 @@
     "**/build": true,
     "**/.pnpm-store": true
   },
+
   "search.exclude": {
     "**/node_modules": true,
     "**/*.code-search": true,
@@ -46,5 +51,17 @@
     "**/build": true,
     "**/.tanstack": true,
     "**/coverage": true
+  },
+
+  "material-icon-theme.folders.associations": {
+    "tsconfig": "Typescript",
+    ".vite-hooks": "Powershell",
+    "shadcn": "Download"
+  },
+
+  "material-icon-theme.files.associations": {
+    "tsconfig/base.json": "Tsconfig",
+    "cspell.json": "I18n",
+    ".env.keys": "Key"
   }
 }
