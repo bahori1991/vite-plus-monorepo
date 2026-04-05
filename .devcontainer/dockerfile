@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM debian:bookworm-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
@@ -30,13 +30,13 @@ RUN groupadd -g 1001 appuser && \
 RUN mkdir -p /home/appuser/workspace && \
     chown -R appuser:appuser /home/appuser/workspace
 
-# 日本時間に設定（コンテナでは timedatectl は使わない）
+# 日本時間に設定
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     echo "${TZ}" > /etc/timezone
 
 # vite.plusをインストール
-ENV VITE_PLUS_HOME=/home/appuser/.vite-plus
-ENV PATH="${VITE_PLUS_HOME}/bin:${PATH}"
+ENV VP_HOME="/home/appuser/.vite-plus"
+ENV PATH="${VP_HOME}/bin:${PATH}"
 RUN curl -fsSL https://vite.plus | bash
 
 # 以降は appuser で動作させる
