@@ -1,14 +1,17 @@
 {
   "ignorePaths": [
-    ".devcontainer/**",
-    ".vscode/**",
-    "**/node_modules/**",
-    "**/.tanstack/**",
-    "**/.git/**",
-    "**/dist/**",
     "**/.cursor/rules/**",
+    "**/.devcontainer/**",
+    "**/.git/**",
+    "**/.tanstack/**",
+    "**/.vscode/**",
+    "**/dist/**",
+    "**/node_modules/**",
     "**/*.json",
+    "**/*.yaml",
     "*.log",
+    "*.env.*",
     ".gitignore"
-  ]
+  ],
+  "words": ["appuser", "dotenvx", "vite"]
 }
