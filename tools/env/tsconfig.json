@@ -1,0 +1,11 @@
+{
+  "extends": "@repo/tsconfig/base.json",
+  "compilerOptions": {
+    "paths": {
+      "@repo/env/*": ["./src/*"]
+    },
+    "types": ["node", "vite/client"]
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@repo/env",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./client": "./src/client.ts",
+    "./server": "./src/server.ts"
+  },
+  "scripts": {
+    "run": "./scripts/run.sh",
+    "get": "./scripts/get.sh",
+    "encrypt": "./scripts/encrypt.sh",
+    "set": "./scripts/set.sh"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "catalog:",
+    "vite": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@dotenvx/dotenvx": "catalog:",
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "catalog:"
+  }
+}
