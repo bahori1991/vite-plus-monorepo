@@ -1,12 +1,17 @@
 {
-  "name": "sample",
+  "name": "vite-plus+monorepo",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "ready": "vp fmt && vp lint && vp run test -r && vp run build -r",
-    "dev": "vp run website#dev",
-    "prepare": "vp config"
+    "dev": "pnpm run --recursive --parallel dev",
+    "prepare": "vp config",
+    "ui": "vp run --filter=@repo/ui ui",
+    "env:get": "vp run --filter=@repo/env get",
+    "env:set": "vp run --filter=@repo/env set",
+    "env:encrypt": "vp run --filter=@repo/env encrypt",
+    "rc-check": "pnpm run --recursive rc-check"
   },
   "devDependencies": {
     "vite-plus": "catalog:"
