@@ -12,6 +12,7 @@ RUN apt update && \
         bash-completion \
         openssh-client \
         curl \
+        lsof \
         xz-utils \
         ca-certificates \
         dumb-init && \

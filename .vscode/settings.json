@@ -54,9 +54,12 @@
   },
 
   "material-icon-theme.folders.associations": {
-    "tsconfig": "Typescript",
     ".vite-hooks": "Powershell",
-    "shadcn": "Download"
+    "query": "Rules",
+    "shadcn": "Download",
+    "tsconfig": "Typescript",
+    "tanstack": "Seeders",
+    "tanstack-devtools": "Seeders"
   },
 
   "material-icon-theme.files.associations": {
