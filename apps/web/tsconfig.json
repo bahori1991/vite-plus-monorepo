@@ -1,11 +1,12 @@
 {
-  "extends": "@repo/tsconfig/base.json",
+  "extends": "@tools/tsconfig/base.json",
   "compilerOptions": {
     "verbatimModuleSyntax": false,
     "paths": {
-      "@apps/web/*": ["./src/*"]
+      "@apps/web/*": ["./src/*"],
+      "@packages/ui/*": ["../../packages/ui/*"]
     }
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["./src/**/*", "./vite.config.ts"],
+  "exclude": ["node_modules", "dist", ".tanstack"]
 }

@@ -7,7 +7,7 @@
     "ready": "vp fmt && vp lint && vp run test -r && vp run build -r",
     "dev": "pnpm run --recursive --parallel dev",
     "prepare": "vp config",
-    "ui": "vp run --filter=@repo/ui ui",
+    "ui": "vp run --filter=@packages/ui ui",
     "env:get": "vp run --filter=@tools/env get",
     "env:set": "vp run --filter=@tools/env set",
     "env:encrypt": "vp run --filter=@tools/env encrypt",

@@ -1,23 +1,26 @@
 import { defineConfig } from "vite-plus";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
+import { devtools } from "@tanstack/devtools-vite";
 import babel from "@rolldown/plugin-babel";
-import path from "node:path";
+import tailwindcss from "@tailwindcss/vite";
 
-const enableReactCompiler = process.env.REACT_COMPILER !== "false";
+const enableReactCompiler = process.env["REACT_COMPILER"] !== "false";
 
 export default defineConfig({
-  root: path.resolve(__dirname),
   server: {
     port: 3000,
     host: true,
+    strictPort: true,
   },
+  plugins: [
+    devtools(),
+    tanstackStart({ srcDirectory: "src" }),
+    viteReact(),
+    tailwindcss(),
+    enableReactCompiler ? babel({ presets: [reactCompilerPreset()] }) : undefined,
+  ],
   resolve: {
     tsconfigPaths: true,
   },
-  plugins: [
-    tanstackStart(),
-    viteReact(),
-    enableReactCompiler ? babel({ presets: [reactCompilerPreset()] }) : undefined,
-  ],
 });

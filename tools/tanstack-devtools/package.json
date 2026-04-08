@@ -1,0 +1,17 @@
+{
+  "name": "@tools/tanstack-devtools",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.tsx"
+  },
+  "dependencies": {
+    "@tanstack/react-devtools": "catalog:",
+    "@tanstack/react-form-devtools": "catalog:",
+    "@tanstack/react-query-devtools": "catalog:",
+    "@tanstack/react-router-devtools": "catalog:",
+    "@tools/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:"
+  }
+}

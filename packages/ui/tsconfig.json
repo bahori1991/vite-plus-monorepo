@@ -1,0 +1,11 @@
+{
+  "extends": "@tools/tsconfig/base.json",
+  "compilerOptions": {
+    "paths": {
+      "@packages/ui/*": ["./src/*"]
+    },
+    "types": ["node", "vite/client"]
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

@@ -1,16 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { clientEnv } from "@repo/env/client";
+import { clientEnv } from "@tools/env/client";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const url = clientEnv.VITE_WEB_URL;
-  return (
-    <>
-      <div>Hello "/"!</div>
-      <p>URL: {url}</p>
-    </>
-  );
+  const a = clientEnv.VITE_WEB_URL;
+  return <div className="text-red-600">Hello {a}</div>;
 }

@@ -1,0 +1,10 @@
+{
+  "extends": "@tools/tsconfig/base.json",
+  "compilerOptions": {
+    "paths": {
+      "@tools/tanstack-devtools/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

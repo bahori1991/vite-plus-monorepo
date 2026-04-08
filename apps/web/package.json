@@ -1,27 +1,36 @@
 {
-  "name": "@repo/web",
+  "name": "@apps/web",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "./dev.sh",
+    "dev": "bash ./dev.sh",
     "rc-check": "vp exec pnpm dlx react-compiler-healthcheck --src 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@packages/ui": "workspace:*",
+    "@tailwindcss/vite": "catalog:",
+    "@tanstack/react-form-start": "catalog:",
+    "@tanstack/react-query": "catalog:",
     "@tanstack/react-router": "catalog:",
-    "@tanstack/react-start": "catalog:",
+    "@tanstack/react-router-ssr-query": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
-    "@repo/env": "workspace:*",
-    "@repo/tsconfig": "workspace:*",
     "@rolldown/plugin-babel": "catalog:",
+    "@tanstack/devtools-vite": "catalog:",
+    "@tanstack/react-start": "catalog:",
+    "@tools/env": "workspace:*",
+    "@tools/tanstack-devtools": "workspace:*",
+    "@tools/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "babel-plugin-react-compiler": "catalog:",
     "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plus": "catalog:"
   }
 }
