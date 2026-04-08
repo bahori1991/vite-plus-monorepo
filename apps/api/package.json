@@ -1,18 +1,18 @@
 {
-  "name": "@repo/api",
+  "name": "@apps/api",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "./dev.sh"
+    "dev": "bash ./dev.sh"
   },
   "dependencies": {
     "@hono/vite-dev-server": "catalog:",
     "@hono/zod-validator": "catalog:",
-    "@repo/env": "workspace:*",
+    "@tools/env": "workspace:*",
     "hono": "catalog:"
   },
   "devDependencies": {
-    "@repo/tsconfig": "workspace:*",
+    "@tools/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "vite-plus": "catalog:"
   }

@@ -33,4 +33,4 @@ if [ ! -f "$ENV_PATH" ]; then
   exit 1
 fi
 
-pnpm --filter @repo/env exec dotenvx get "$KEY" -f "$ENV_PATH"
+pnpm --filter @tools/env exec dotenvx get "$KEY" -f "$ENV_PATH"

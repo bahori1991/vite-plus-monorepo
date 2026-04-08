@@ -32,4 +32,4 @@ if [ ! -f "$ENV_PATH" ]; then
   exit 1
 fi
 
-pnpm --filter @repo/env exec dotenvx encrypt -f "$ENV_PATH"
+pnpm --filter @tools/env exec dotenvx encrypt -f "$ENV_PATH"

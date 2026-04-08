@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { corsMiddleware } from "@apps/api/middleware/cors";
-import { serverEnv } from "@repo/env/server";
+import { serverEnv } from "@tools/env/server";
 
 const app = new Hono()
   .use("*", corsMiddleware())

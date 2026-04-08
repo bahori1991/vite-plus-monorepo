@@ -31,6 +31,6 @@ if [ ! -f "$ENV_DIR/$ENV_FILE" ]; then
   exit 1
 fi
 
-pnpm --filter @repo/env exec dotenvx run \
+pnpm --filter @tools/env exec dotenvx run \
   -f "${ENV_DIR}/${ENV_FILE}" \
   -- "$@"

@@ -1,5 +1,5 @@
 {
-  "name": "@repo/env",
+  "name": "@tools/env",
   "private": true,
   "type": "module",
   "exports": {
@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "@t3-oss/env-core": "catalog:",
-    "vite": "catalog:",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.16",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "catalog:",
-    "@repo/tsconfig": "workspace:*",
+    "@tools/tsconfig": "workspace:*",
     "@types/node": "catalog:"
   }
 }

@@ -8,9 +8,9 @@
     "dev": "pnpm run --recursive --parallel dev",
     "prepare": "vp config",
     "ui": "vp run --filter=@repo/ui ui",
-    "env:get": "vp run --filter=@repo/env get",
-    "env:set": "vp run --filter=@repo/env set",
-    "env:encrypt": "vp run --filter=@repo/env encrypt",
+    "env:get": "vp run --filter=@tools/env get",
+    "env:set": "vp run --filter=@tools/env set",
+    "env:encrypt": "vp run --filter=@tools/env encrypt",
     "rc-check": "pnpm run --recursive rc-check"
   },
   "devDependencies": {
