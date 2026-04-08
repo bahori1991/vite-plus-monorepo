@@ -29,5 +29,5 @@ if [ ! -x "$DOTENVX" ]; then
 fi
 
 exec "$DOTENVX" run \
-  -f "${ENV_DIR}/${ENV_FILE}" \
-  -- pnpm exec vite -c vite.config.ts
+    -f "${ENV_DIR}/${ENV_FILE}" \
+    -- vp dev

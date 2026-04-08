@@ -4,7 +4,7 @@ set -euo pipefail
 WEB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$WEB_DIR"
 
-# vp run @repo/env#run はタスクの cwd が tools/env になり、TanStack / Vite が誤ったパスを見る。
+# vp run @tools/env#run はタスクの cwd が tools/env になり、TanStack / Vite が誤ったパスを見る。
 # run.sh と同じ dotenvx 呼び出しを、アプリ直下で実行する。
 case "${NODE_ENV:-development}" in
   production) ENV_FILE=".env.production" ;;
@@ -32,4 +32,4 @@ fi
 
 exec "$DOTENVX" run \
   -f "${ENV_DIR}/${ENV_FILE}" \
-  -- pnpm exec vite -c vite.config.ts
+  -- vp dev
