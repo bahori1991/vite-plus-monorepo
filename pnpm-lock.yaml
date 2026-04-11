@@ -108,9 +108,6 @@ catalogs:
     typescript:
       specifier: ^5.9.3
       version: 5.9.3
-    vite:
-      specifier: npm:@voidzero-dev/vite-plus-core@^0.1.16
-      version: 0.1.16
     vite-plus:
       specifier: ^0.1.16
       version: 0.1.16
@@ -175,6 +172,9 @@ importers:
       '@tanstack/react-router-ssr-query':
         specifier: 'catalog:'
         version: 1.166.10(@tanstack/query-core@5.96.2)(@tanstack/react-query@5.96.2(react@19.2.4))(@tanstack/react-router@1.168.10(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(@tanstack/router-core@1.168.9)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@tools/env':
+        specifier: workspace:*
+        version: link:../../tools/env
       react:
         specifier: 'catalog:'
         version: 19.2.4
@@ -194,9 +194,6 @@ importers:
       '@tanstack/react-start':
         specifier: 'catalog:'
         version: 1.167.16(@voidzero-dev/vite-plus-core@0.1.16(@types/node@24.12.2)(jiti@2.6.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@tools/env':
-        specifier: workspace:*
-        version: link:../../tools/env
       '@tools/tanstack-devtools':
         specifier: workspace:*
         version: link:../../tools/tanstack-devtools
@@ -222,7 +219,7 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
       vite:
-        specifier: 'catalog:'
+        specifier: npm:@voidzero-dev/vite-plus-core@^0.1.16
         version: '@voidzero-dev/vite-plus-core@0.1.16(@types/node@24.12.2)(jiti@2.6.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)'
       vite-plus:
         specifier: 'catalog:'
@@ -312,9 +309,6 @@ importers:
       '@t3-oss/env-core':
         specifier: 'catalog:'
         version: 0.13.11(typescript@5.9.3)(zod@4.3.6)
-      vite:
-        specifier: npm:@voidzero-dev/vite-plus-core@^0.1.16
-        version: '@voidzero-dev/vite-plus-core@0.1.16(@types/node@24.12.2)(jiti@2.6.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)'
       zod:
         specifier: 'catalog:'
         version: 4.3.6
@@ -328,6 +322,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.12.2
+      vite:
+        specifier: npm:@voidzero-dev/vite-plus-core@^0.1.16
+        version: '@voidzero-dev/vite-plus-core@0.1.16(@types/node@24.12.2)(jiti@2.6.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)'
 
   tools/tanstack-devtools:
     dependencies:
@@ -343,6 +340,7 @@ importers:
       '@tanstack/react-router-devtools':
         specifier: 'catalog:'
         version: 1.166.11(@tanstack/react-router@1.168.10(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(@tanstack/router-core@1.168.9)(csstype@3.2.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+    devDependencies:
       '@tools/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
