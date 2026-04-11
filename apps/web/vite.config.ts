@@ -4,8 +4,7 @@ import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
 import { devtools } from "@tanstack/devtools-vite";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
-
-const enableReactCompiler = process.env["REACT_COMPILER"] !== "false";
+import { serverEnv } from "@tools/env/server";
 
 export default defineConfig({
   server: {
@@ -14,11 +13,13 @@ export default defineConfig({
     strictPort: true,
   },
   plugins: [
-    devtools(),
+    // TanStack Start の dev 用ミドルウェアを確実に載せる（vite-plus-core では ssr 環境の自動判定で
+    // GET / が未処理のまま "Cannot GET /" になることがある）
     tanstackStart({ srcDirectory: "src" }),
+    devtools(),
     viteReact(),
     tailwindcss(),
-    enableReactCompiler ? babel({ presets: [reactCompilerPreset()] }) : undefined,
+    serverEnv.REACT_COMPILER ? babel({ presets: [reactCompilerPreset()] }) : undefined,
   ],
   resolve: {
     tsconfigPaths: true,
