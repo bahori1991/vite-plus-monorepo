@@ -6,8 +6,6 @@
   "updateRemoteUserUID": true,
   "workspaceFolder": "/home/appuser/workspace",
   "mounts": [
-    "source=${localEnv:HOME}/.bashrc,target=/home/appuser/.bashrc,type=bind",
-    "source=${localEnv:SSH_AUTH_SOCK},target=/home/appuser/ssh-agent,type=bind",
     "source=${localWorkspaceFolder},target=/home/appuser/workspace,type=bind,consistency=cached"
   ],
   "forwardPorts": [3000, 4206, 8080],
@@ -17,21 +15,17 @@
     "8080": { "label": "Backend" },
     "32768-60999": { "onAutoForward": "ignore" }
   },
-  "remoteEnv": {
-    "SSH_AUTH_SOCK": "/home/appuser/ssh-agent"
-  },
   "containerEnv": {
     "ROOT_PATH": "/home/appuser/workspace",
     "DATABASE_URL": "postgresql://user:password@db:5432/db",
     "NODE_ENV": "development",
-    "SSH_AUTH_SOCK": "/home/appuser/ssh-agent",
     "TZ": "Asia/Tokyo",
     "PGTZ": "Asia/Tokyo",
     "LANG": "C.UTF-8",
     "LC_ALL": "C.UTF-8"
   },
   "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1.1.0": {}
   },
   "customizations": {
     "vscode": {

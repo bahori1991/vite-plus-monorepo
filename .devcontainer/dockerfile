@@ -1,4 +1,5 @@
-FROM debian:bookworm-slim
+ARG BASE_IMAGE=debian:bookworm-slim@sha256:4724b8cc51e33e398f0e2e15e18d5ec2851ff0c2280647e1310bc1642182655d
+FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
@@ -15,7 +16,8 @@ RUN apt update && \
         lsof \
         xz-utils \
         ca-certificates \
-        dumb-init && \
+        dumb-init \
+        gosu && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
@@ -35,13 +37,27 @@ RUN mkdir -p /home/appuser/workspace && \
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     echo "${TZ}" > /etc/timezone
 
-# vite.plusをインストール
+# vite.plusをPATHに追加
 ENV VP_HOME="/home/appuser/.vite-plus"
 ENV PATH="${VP_HOME}/bin:${PATH}"
-RUN curl -fsSL https://vite.plus | bash
+
+# 信頼できるvite.plusのハッシュ値をコピー
+COPY vite-plus-install.sha256 /tmp/expected.sha256
+
+# vite.plusのハッシュ値を検証して一致していればvite.plusをインストール
+RUN curl -fsSL --proto "=https" --tlsv1.2 https://vite.plus -o /tmp/vite-plus-install.sh && \
+    actual="$(sha256sum /tmp/vite-plus-install.sh | awk '{print $1}')" && \
+    expected="$(awk '{print $1}' /tmp/expected.sha256)" && \
+    test "$actual" = "$expected" || \
+        (echo "SHA256 mismatch: expected $expected got $actual" >&2; exit 1) && \
+    bash /tmp/vite-plus-install.sh && \
+    rm -f /tmp/vite-plus-install.sh /tmp/expected.sha256
 
 # 以降は appuser で動作させる
 USER appuser
+
+# .bashrcのコピー
+COPY --chown=appuser:appuser .bashrc /home/appuser/.bashrc
 
 # login shell / sh -l でも vite-plus の PATH 等を有効にする
 RUN grep -qF '. "$HOME/.vite-plus/env"' /home/appuser/.profile 2>/dev/null || \
@@ -50,5 +66,9 @@ RUN grep -qF '. "$HOME/.vite-plus/env"' /home/appuser/.profile 2>/dev/null || \
 # 作業ディレクトリの設定
 WORKDIR /home/appuser/workspace
 
-# デフォルト入口コマンド
-ENTRYPOINT [ "dumb-init", "--" ]
+# コンテナは root で起動し、ボリュームの chown 後に appuser に降格する
+USER root
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

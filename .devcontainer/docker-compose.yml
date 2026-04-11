@@ -3,12 +3,14 @@ services:
     build:
       context: .
       dockerfile: dockerfile
+    volumes:
+      - pnpm-store:/home/appuser/.pnpm-store
     command: sleep infinity
     depends_on:
       db:
         condition: service_healthy
   db:
-    image: postgres:17
+    image: postgres:17@sha256:7ad98329d513dd497293b951c195ca354274a77f12ddbbbbf85e68a811823d72
     restart: unless-stopped
     volumes:
       - postgres-data:/var/lib/postgresql
@@ -19,10 +21,11 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: db
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U user" ]
+      test: ["CMD-SHELL", "pg_isready -U user"]
       interval: 5s
       timeout: 30s
       retries: 5
 
 volumes:
   postgres-data:
+  pnpm-store:
