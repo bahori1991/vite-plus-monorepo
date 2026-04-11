@@ -7,10 +7,11 @@
     "./server": "./src/server.ts"
   },
   "scripts": {
-    "run": "./scripts/run.sh",
     "get": "./scripts/get.sh",
     "encrypt": "./scripts/encrypt.sh",
-    "set": "./scripts/set.sh"
+    "set": "./scripts/set.sh",
+    "dev:web": "./scripts/dev-app.sh web",
+    "dev:api": "./scripts/dev-app.sh api"
   },
   "dependencies": {
     "@t3-oss/env-core": "catalog:",

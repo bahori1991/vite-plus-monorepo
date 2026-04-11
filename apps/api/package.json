@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bash ./dev.sh"
+    "dev": "bash ../../tools/env/scripts/dev-app.sh api"
   },
   "dependencies": {
     "@hono/vite-dev-server": "catalog:",

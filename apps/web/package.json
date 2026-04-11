@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bash ./dev.sh",
+    "dev": "bash ../../tools/env/scripts/dev-app.sh web",
     "rc-check": "vp exec pnpm dlx react-compiler-healthcheck --src 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
