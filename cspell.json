@@ -13,5 +13,5 @@
     "*.env.*",
     ".gitignore"
   ],
-  "words": ["appuser", "dotenvx", "fontsource", "shadcn", "tsgo", "vite"]
+  "words": ["appuser", "dotenvx", "fontsource", "shadcn", "tanstack", "tsgo", "vite"]
 }

@@ -11,12 +11,12 @@
   "oxc.fmt.configPath": "./vite.config.ts",
 
   "files.readonlyInclude": {
-    "**/node_modules/**": true,
     "**/.tanstack/**": true,
-    "**/routeTree.gen.ts": true,
-    "**/dist/**": true,
     "**/.vite-hooks/_/**": true,
-    "**/pnpm-lock.yaml": true
+    "**/dist/**": true,
+    "**/node_modules/**": true,
+    "**/pnpm-lock.yaml": true,
+    "**/routeTree.gen.ts": true
   },
 
   "files.watcherExclude": {
@@ -58,7 +58,6 @@
     "query": "Rules",
     "shadcn": "Download",
     "tsconfig": "Typescript",
-    "tanstack": "Seeders",
     "tanstack-devtools": "Seeders"
   },
 
