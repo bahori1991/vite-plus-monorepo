@@ -16,6 +16,7 @@
     "@tools/env": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:",
+    "react-error-boundary": "catalog:",
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
