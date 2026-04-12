@@ -1,5 +1,5 @@
-import { createEnv } from "@t3-oss/env-core";
-import z from "zod";
+import { createEnv } from "@t3-oss/env-core"
+import z from "zod"
 
 export const serverEnv = createEnv({
   server: {
@@ -19,4 +19,4 @@ export const serverEnv = createEnv({
     REACT_COMPILER: process.env["REACT_COMPILER"],
   },
   emptyStringAsUndefined: true,
-});
+})

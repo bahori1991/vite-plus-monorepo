@@ -1,10 +1,10 @@
-import { defineConfig } from "vite-plus";
-import devServer from "@hono/vite-dev-server";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { defineConfig } from "vite-plus"
+import devServer from "@hono/vite-dev-server"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   root: path.resolve(__dirname),
@@ -19,4 +19,4 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-});
+})

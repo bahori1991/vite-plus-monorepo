@@ -1,8 +1,8 @@
-import { StrictMode } from "react";
-import { TanStackDevtools } from "@tools/tanstack-devtools";
-import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
-import { QueryClient } from "@tanstack/react-query";
-import styles from "@apps/web/styles.css?url";
+import { StrictMode } from "react"
+import { TanStackDevtools } from "@tools/tanstack-devtools"
+import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanstack/react-router"
+import { QueryClient } from "@tanstack/react-query"
+import styles from "@apps/web/styles.css?url"
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -14,7 +14,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [{ rel: "stylesheet", href: styles }],
   }),
   shellComponent: RootComponent,
-});
+})
 
 function RootComponent() {
   return (
@@ -30,5 +30,5 @@ function RootComponent() {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }

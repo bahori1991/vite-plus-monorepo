@@ -1,10 +1,10 @@
-import { defineConfig } from "vite-plus";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
-import { devtools } from "@tanstack/devtools-vite";
-import babel from "@rolldown/plugin-babel";
-import tailwindcss from "@tailwindcss/vite";
-import { serverEnv } from "@tools/env/server";
+import { defineConfig } from "vite-plus"
+import { tanstackStart } from "@tanstack/react-start/plugin/vite"
+import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react"
+import { devtools } from "@tanstack/devtools-vite"
+import babel from "@rolldown/plugin-babel"
+import tailwindcss from "@tailwindcss/vite"
+import { serverEnv } from "@tools/env/server"
 
 export default defineConfig({
   server: {
@@ -24,4 +24,4 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-});
+})

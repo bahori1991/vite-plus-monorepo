@@ -1,4 +1,4 @@
-import { defineConfig } from "vite-plus";
+import { defineConfig } from "vite-plus"
 
 export default defineConfig({
   staged: {
@@ -7,5 +7,6 @@ export default defineConfig({
   lint: { options: { typeAware: true, typeCheck: true } },
   fmt: {
     ignorePatterns: ["routeTree.gen.ts"],
+    semi: false,
   },
-});
+})

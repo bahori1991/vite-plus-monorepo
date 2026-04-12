@@ -1,5 +1,5 @@
-import { serverEnv } from "@tools/env/server";
-import { cors } from "hono/cors";
+import { serverEnv } from "@tools/env/server"
+import { cors } from "hono/cors"
 
 export const corsMiddleware = () => {
   return cors({
@@ -9,5 +9,5 @@ export const corsMiddleware = () => {
     exposeHeaders: ["Content-Length"],
     maxAge: 600,
     credentials: true,
-  });
-};
+  })
+}
