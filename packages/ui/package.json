@@ -30,7 +30,7 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.16",
+    "vite": "catalog:",
     "vite-plus": "catalog:"
   },
   "peerDependencies": {
