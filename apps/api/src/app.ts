@@ -6,7 +6,7 @@ const app = new Hono()
   .use("*", corsMiddleware())
   .basePath("/api")
   .get("/", (c) => {
-    return c.text(`Env: ${serverEnv.SERVER_URL}`)
+    return c.text(`reactCompiler: ${serverEnv.REACT_COMPILER}`)
   })
 
 export default app

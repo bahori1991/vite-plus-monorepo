@@ -10,6 +10,7 @@ export default defineConfig({
   root: path.resolve(__dirname),
   server: {
     port: 8080,
+    strictPort: true,
   },
   plugins: [
     devServer({
