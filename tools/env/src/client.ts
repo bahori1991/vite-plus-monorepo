@@ -8,8 +8,6 @@ export const clientEnv = createEnv({
   client: {
     VITE_WEB_URL: z.url(),
   },
-  runtimeEnvStrict: {
-    VITE_WEB_URL: import.meta.env["VITE_WEB_URL"],
-  },
+  runtimeEnv: import.meta.env,
   emptyStringAsUndefined: true,
 })

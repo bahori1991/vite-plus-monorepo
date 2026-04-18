@@ -2,8 +2,7 @@
   "extends": "@tools/tsconfig/base.json",
   "compilerOptions": {
     "paths": {
-      "@packages/db": ["./src/*"],
-      "@tools/env/*": ["../../tools/env/src/*"]
+      "@packages/db": ["./src/*"]
     }
   },
   "include": ["./src/**/*"],

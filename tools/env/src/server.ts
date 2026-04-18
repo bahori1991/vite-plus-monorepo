@@ -10,13 +10,6 @@ export const serverEnv = createEnv({
     BETTER_AUTH_SECRET: z.string().min(32),
     REACT_COMPILER: z.coerce.boolean(),
   },
-  runtimeEnvStrict: {
-    NODE_ENV: process.env["NODE_ENV"],
-    DATABASE_URL: process.env["DATABASE_URL"],
-    WEB_URL: process.env["WEB_URL"],
-    SERVER_URL: process.env["SERVER_URL"],
-    BETTER_AUTH_SECRET: process.env["BETTER_AUTH_SECRET"],
-    REACT_COMPILER: process.env["REACT_COMPILER"],
-  },
+  runtimeEnv: process.env,
   emptyStringAsUndefined: true,
 })

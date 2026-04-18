@@ -1,0 +1,38 @@
+# --- 安全対策 機密情報 ---
+.env
+.env.*
+*.keys
+
+# -- 重い・不要なフォルダ ---
+node_modules
+dist/
+build/
+out/
+coverage/
+.tanstack/
+
+# --- システム・エディタ関連 ---
+.DS_Store
+.git/
+Thumbs.db
+Desktop.ini
+
+# --- ログファイル ---
+*.log
+logs/
+
+# --- 設定ファイル ---
+config.json
+
+# --- データベースファイル ---
+*.db
+*.sqlite
+*.sqlite3
+
+# --- キャッシュディレクトリ ---
+cache/
+tmp/
+temp/
+
+# --- ロックファイル ---
+pnpm-lock.yaml

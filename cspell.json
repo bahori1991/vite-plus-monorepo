@@ -1,6 +1,7 @@
 {
   "ignorePaths": [
-    "**/.cursor/rules/**",
+    "**/.agents/**",
+    "**/.cursor/**",
     "**/.devcontainer/**",
     "**/.git/**",
     "**/.tanstack/**",
