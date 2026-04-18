@@ -7,11 +7,14 @@
     "./server": "./src/server.ts"
   },
   "scripts": {
-    "get": "./scripts/get.sh",
-    "encrypt": "./scripts/encrypt.sh",
-    "set": "./scripts/set.sh",
-    "dev:web": "./scripts/dev-app.sh web",
-    "dev:api": "./scripts/dev-app.sh api"
+    "dev": "concurrently \"pnpm:dev:*\"",
+    "dev:web": "dotenvx run -f .env.development -- vp run --filter=@apps/web dev",
+    "dev:api": "dotenvx run -f .env.development -- vp run --filter=@apps/api dev",
+    "db:push": "dotenvx run -f .env.development -- vp run --filter=@packages/db push",
+    "db:studio": "dotenvx run -f .env.development -- vp run --filter=@packages/db studio",
+    "get": "dotenvx get",
+    "set": "dotenvx set",
+    "encrypt": "dotenvx encrypt"
   },
   "dependencies": {
     "@t3-oss/env-core": "catalog:",
@@ -21,6 +24,7 @@
     "@dotenvx/dotenvx": "catalog:",
     "@tools/tsconfig": "workspace:*",
     "@types/node": "catalog:",
+    "concurrently": "catalog:",
     "vite": "catalog:"
   }
 }
