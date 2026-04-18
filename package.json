@@ -4,14 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "ready": "vp fmt && vp lint && vp run test -r && vp run build -r",
-    "dev": "pnpm run --recursive --parallel dev",
-    "prepare": "vp config",
+    "tools:env": "vp run --filter=@tools/env",
+    "dev": "pnpm run tools:env -- dev",
     "ui": "vp run --filter=@packages/ui ui",
-    "env:get": "vp run --filter=@tools/env get",
-    "env:set": "vp run --filter=@tools/env set",
-    "env:encrypt": "vp run --filter=@tools/env encrypt",
-    "rc-check": "pnpm run --recursive rc-check"
+    "db:push": "pnpm run tools:env -- db:push",
+    "db:studio": "pnpm run tools:env -- db:studio",
+    "env:get": "pnpm run tools:env -- get",
+    "env:set": "pnpm run tools:env -- set",
+    "env:encrypt": "pnpm run tools:env -- encrypt",
+    "rc-check": "vp run --recursive rc-check",
+    "ready": "vp fmt && vp lint && vp run test -r && vp run build -r",
+    "prepare": "vp config"
   },
   "devDependencies": {
     "vite-plus": "catalog:"
