@@ -8,17 +8,17 @@
   "mounts": [
     "source=${localWorkspaceFolder},target=/home/appuser/workspace,type=bind,consistency=cached"
   ],
-  "forwardPorts": [3000, 4206, 8080],
+  "forwardPorts": [3000, 4206, 4983, 8080],
   "portsAttributes": {
     "3000": { "label": "Frontend" },
     "4206": { "label": "Vite+" },
+    "4983": { "label": "Drizzle Studio" },
     "8080": { "label": "Backend" },
     "32768-60999": { "onAutoForward": "ignore" }
   },
   "containerEnv": {
     "ROOT_PATH": "/home/appuser/workspace",
     "DATABASE_URL": "postgresql://user:password@db:5432/db",
-    "NODE_ENV": "development",
     "TZ": "Asia/Tokyo",
     "PGTZ": "Asia/Tokyo",
     "LANG": "C.UTF-8",
