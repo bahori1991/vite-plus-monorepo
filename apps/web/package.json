@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bash ../../tools/env/scripts/dev-app.sh web",
-    "rc-check": "vp exec pnpm dlx react-compiler-healthcheck --src 'src/**/*.{ts,tsx}'"
+    "dev": "vp dev",
+    "rc-check": "pnpm dlx react-compiler-healthcheck --src 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@packages/ui": "workspace:*",
@@ -14,6 +14,7 @@
     "@tanstack/react-router": "catalog:",
     "@tanstack/react-router-ssr-query": "catalog:",
     "@tools/env": "workspace:*",
+    "nitro": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-error-boundary": "catalog:",
