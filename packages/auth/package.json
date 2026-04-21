@@ -1,0 +1,17 @@
+{
+  "name": "@packages/auth",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "dependencies": {
+    "@packages/db": "workspace:*",
+    "better-auth": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@tools/tsconfig": "workspace:*",
+    "@types/node": "catalog:"
+  }
+}

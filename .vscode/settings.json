@@ -1,69 +1,65 @@
 {
-  "editor.defaultFormatter": "oxc.oxc-vscode",
-  "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "file",
   "editor.codeActionsOnSave": {
     "source.fixAll.oxc": "explicit"
   },
-
-  "oxc.path.oxlint": "/home/appuser/.vite-plus/current/node_modules/.bin/oxlint",
-  "oxc.path.oxfmt": "/home/appuser/.vite-plus/current/node_modules/.bin/oxfmt",
-  "oxc.fmt.configPath": "./vite.config.ts",
-
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.tanstack": true,
+    "**/.vite-hooks/_": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true
+  },
   "files.readonlyInclude": {
     "**/.tanstack/**": true,
     "**/.vite-hooks/_/**": true,
     "**/dist/**": true,
+    "**/drizzle/**": true,
     "**/node_modules/**": true,
     "**/pnpm-lock.yaml": true,
-    "**/routeTree.gen.ts": true
+    "**/routeTree.gen.ts": true,
+    "**/skills-lock.json": true
   },
-
   "files.watcherExclude": {
+    "**/.cache/**": true,
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/.hg/store/**": true,
-    "**/node_modules/*/**": true,
-    "**/dist/**": true,
-    "**/build/**": true,
     "**/.tanstack/**": true,
+    "**/build/**": true,
     "**/coverage/**": true,
-    "**/tmp/**": true,
-    "**/.cache/**": true
+    "**/dist/**": true,
+    "**/drizzle/**": true,
+    "**/node_modules/*/**": true,
+    "**/tmp/**": true
   },
-
-  "files.exclude": {
-    "**/.git": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "**/node_modules": true,
-    "**/.tanstack": true,
-    "**/.vite-hooks/_": true,
-    "**/dist": true,
-    "**/build": true,
-    "**/.pnpm-store": true
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "material-icon-theme.files.associations": {
+    ".env.keys": "Key",
+    "cspell.json": "I18n",
+    "tsconfig/base.json": "Tsconfig"
   },
-
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/*.code-search": true,
-    "**/dist": true,
-    "**/build": true,
-    "**/.tanstack": true,
-    "**/coverage": true
-  },
-
   "material-icon-theme.folders.associations": {
     ".vite-hooks": "Powershell",
     "query": "Rules",
     "shadcn": "Download",
-    "tsconfig": "Typescript",
-    "tanstack-devtools": "Seeders"
+    "tanstack-devtools": "Seeders",
+    "tsconfig": "Typescript"
   },
-
-  "material-icon-theme.files.associations": {
-    "tsconfig/base.json": "Tsconfig",
-    "cspell.json": "I18n",
-    ".env.keys": "Key"
-  }
+  "oxc.fmt.configPath": "./vite.config.ts",
+  "oxc.path.oxfmt": "/home/appuser/.vite-plus/current/node_modules/.bin/oxfmt",
+  "oxc.path.oxlint": "/home/appuser/.vite-plus/current/node_modules/.bin/oxlint",
+  "search.exclude": {
+    "**/*.code-search": true,
+    "**/.tanstack": true,
+    "**/build": true,
+    "**/coverage": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

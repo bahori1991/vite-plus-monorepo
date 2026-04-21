@@ -7,8 +7,10 @@
     "rc-check": "pnpm dlx react-compiler-healthcheck --src 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@packages/auth": "workspace:*",
     "@packages/ui": "workspace:*",
     "@tailwindcss/vite": "catalog:",
+    "@tanstack/react-form": "catalog:",
     "@tanstack/react-form-start": "catalog:",
     "@tanstack/react-query": "catalog:",
     "@tanstack/react-router": "catalog:",
@@ -32,7 +34,7 @@
     "@vitejs/plugin-react": "catalog:",
     "babel-plugin-react-compiler": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.19",
     "vite-plus": "catalog:"
   }
 }

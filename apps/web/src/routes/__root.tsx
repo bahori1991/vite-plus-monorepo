@@ -1,5 +1,6 @@
 import { StrictMode } from "react"
 import { TanStackDevtools } from "@tools/tanstack-devtools"
+import { ThemeProvider } from "@packages/ui/components/theme/theme-provider"
 import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanstack/react-router"
 import { QueryClient } from "@tanstack/react-query"
 import styles from "@apps/web/styles.css?url"
@@ -18,13 +19,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootComponent() {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body>
         <StrictMode>
-          <Outlet />
+          <ThemeProvider>
+            <Outlet />
+          </ThemeProvider>
           <TanStackDevtools />
         </StrictMode>
         <Scripts />

@@ -1,5 +1,4 @@
-ARG BASE_IMAGE=debian:bookworm-slim@sha256:4724b8cc51e33e398f0e2e15e18d5ec2851ff0c2280647e1310bc1642182655d
-FROM ${BASE_IMAGE}
+FROM debian:bookworm-slim@sha256:4724b8cc51e33e398f0e2e15e18d5ec2851ff0c2280647e1310bc1642182655d
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
@@ -8,6 +7,7 @@ ENV TZ=Asia/Tokyo
 RUN apt update && \
     apt upgrade -y && \
     apt install -y --no-install-recommends \
+        procps \
         git \
         tzdata \
         bash-completion \
@@ -21,9 +21,6 @@ RUN apt update && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
-
-# 既存の ubuntu ユーザーを削除
-RUN userdel -r ubuntu || true
 
 # non-root ユーザーを作成
 RUN groupadd -g 1001 appuser && \
@@ -42,7 +39,7 @@ ENV VP_HOME="/home/appuser/.vite-plus"
 ENV PATH="${VP_HOME}/bin:${PATH}"
 
 # 信頼できるvite.plusのハッシュ値をコピー
-COPY vite-plus-install.sha256 /tmp/expected.sha256
+COPY /scripts/vite-plus-install.sha256 /tmp/expected.sha256
 
 # vite.plusのハッシュ値を検証して一致していればvite.plusをインストール
 RUN curl -fsSL --proto "=https" --tlsv1.2 https://vite.plus -o /tmp/vite-plus-install.sh && \
@@ -53,11 +50,15 @@ RUN curl -fsSL --proto "=https" --tlsv1.2 https://vite.plus -o /tmp/vite-plus-in
     bash /tmp/vite-plus-install.sh && \
     rm -f /tmp/vite-plus-install.sh /tmp/expected.sha256
 
+# entrypointのコピー
+COPY scripts/entrypoint.sh /home/appuser/entrypoint.sh
+RUN chmod +x /home/appuser/entrypoint.sh
+
 # 以降は appuser で動作させる
 USER appuser
 
 # .bashrcのコピー
-COPY --chown=appuser:appuser .bashrc /home/appuser/.bashrc
+COPY --chown=appuser:appuser scripts/.bashrc /home/appuser/.bashrc
 
 # login shell / sh -l でも vite-plus の PATH 等を有効にする
 RUN grep -qF '. "$HOME/.vite-plus/env"' /home/appuser/.profile 2>/dev/null || \
@@ -66,9 +67,7 @@ RUN grep -qF '. "$HOME/.vite-plus/env"' /home/appuser/.profile 2>/dev/null || \
 # 作業ディレクトリの設定
 WORKDIR /home/appuser/workspace
 
-# コンテナは root で起動し、ボリュームの chown 後に appuser に降格する
+# より安全なデフォルトコマンド
 USER root
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT [ "/home/appuser/entrypoint.sh" ]
+CMD ["sleep", "infinity"]

@@ -10,6 +10,8 @@
     "dev": "concurrently 'pnpm:dev:*'",
     "dev:web": "pnpm run env:dev -- vp run --filter=@apps/web dev",
     "dev:api": "pnpm run env:dev -- vp run --filter=@apps/api dev",
+    "db:generate": "pnpm run env:dev -- vp run --filter=@packages/db generate",
+    "db:migrate": "pnpm run env:dev -- vp run --filter=@packages/db migrate",
     "db:push": "pnpm run env:dev -- vp run --filter=@packages/db push",
     "db:studio": "pnpm run env:dev -- vp run --filter=@packages/db studio",
     "get": "dotenvx get",
@@ -26,6 +28,6 @@
     "@tools/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "concurrently": "catalog:",
-    "vite": "catalog:"
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.19"
   }
 }

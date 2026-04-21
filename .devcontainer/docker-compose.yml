@@ -5,7 +5,6 @@ services:
       dockerfile: dockerfile
     volumes:
       - pnpm-store:/home/appuser/.pnpm-store
-    command: sleep infinity
     depends_on:
       db:
         condition: service_healthy

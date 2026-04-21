@@ -2,10 +2,11 @@ import { defineConfig } from "vite-plus"
 
 export default defineConfig({
   pack: {
+    clean: true,
     dts: true,
-    format: ["esm", "cjs"],
+    entry: ["src/**/*.ts"],
+    format: ["esm"],
     sourcemap: true,
-    exports: true,
   },
   lint: {
     options: {

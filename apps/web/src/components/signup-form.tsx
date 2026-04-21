@@ -1,0 +1,131 @@
+import { Button } from "@packages/ui/components/shadcn/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@packages/ui/components/shadcn/card"
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "@packages/ui/components/shadcn/field"
+import { Input } from "@packages/ui/components/shadcn/input"
+import { Link } from "@tanstack/react-router"
+import { useForm } from "@tanstack/react-form"
+import { signupSchema } from "@packages/auth/schema"
+
+export function SignupForm() {
+  const form = useForm({
+    defaultValues: {
+      fullName: "",
+      email: "",
+      password: "",
+    },
+    validators: {
+      onSubmit: signupSchema,
+    },
+    onSubmit: async ({ value }) => {
+      console.log("success:", value)
+    },
+  })
+
+  return (
+    <Card className="max-w-md w-full">
+      <CardHeader>
+        <CardTitle>Create an account</CardTitle>
+        <CardDescription>Enter your information below to create your account</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            form.handleSubmit()
+          }}
+        >
+          <FieldGroup>
+            <form.Field
+              name="fullName"
+              children={(field) => {
+                const isInValid = field.state.meta.isTouched && !field.state.meta.isValid
+                return (
+                  <Field data-invalid={isInValid}>
+                    <FieldLabel htmlFor={field.name}>Full Name</FieldLabel>
+                    <Input
+                      id={field.name}
+                      name={field.name}
+                      value={field.state.value}
+                      onBlur={field.handleBlur}
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      aria-invalid={isInValid}
+                      placeholder="John Fisher"
+                      autoComplete="off"
+                    />
+                    {isInValid && <FieldError errors={field.state.meta.errors} />}
+                  </Field>
+                )
+              }}
+            />
+            <form.Field
+              name="email"
+              children={(field) => {
+                const isInValid = field.state.meta.isTouched && !field.state.meta.isValid
+                return (
+                  <Field data-invalid={isInValid}>
+                    <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+                    <Input
+                      id={field.name}
+                      name={field.name}
+                      type="email"
+                      value={field.state.value}
+                      onBlur={field.handleBlur}
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      aria-invalid={isInValid}
+                      placeholder="john-doe@example.com"
+                      autoComplete="off"
+                    />
+                    {isInValid && <FieldError errors={field.state.meta.errors} />}
+                  </Field>
+                )
+              }}
+            />
+            <form.Field
+              name="password"
+              children={(field) => {
+                const isInValid = field.state.meta.isTouched && !field.state.meta.isValid
+                return (
+                  <Field data-invalid={isInValid}>
+                    <FieldLabel htmlFor={field.name}>Password</FieldLabel>
+                    <Input
+                      id={field.name}
+                      name={field.name}
+                      type="password"
+                      value={field.state.value}
+                      onBlur={field.handleBlur}
+                      onChange={(e) => field.handleChange(e.target.value)}
+                      aria-invalid={isInValid}
+                      placeholder="********"
+                      autoComplete="off"
+                    />
+                    {isInValid && <FieldError errors={field.state.meta.errors} />}
+                  </Field>
+                )
+              }}
+            />
+            <FieldGroup>
+              <Field>
+                <Button type="submit">Create Account</Button>
+                <FieldDescription className="px-6 text-center">
+                  Already have an account? <Link to="/login">Sign in</Link>
+                </FieldDescription>
+              </Field>
+            </FieldGroup>
+          </FieldGroup>
+        </form>
+      </CardContent>
+    </Card>
+  )
+}

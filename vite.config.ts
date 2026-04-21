@@ -8,7 +8,7 @@ export default defineConfig({
     options: { typeAware: true, typeCheck: true },
   },
   fmt: {
-    ignorePatterns: ["routeTree.gen.ts"],
+    ignorePatterns: ["routeTree.gen.ts", "dist/**"],
     semi: false,
   },
 })

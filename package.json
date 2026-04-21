@@ -8,15 +8,19 @@
     "dev": "pnpm run tools:env -- dev",
     "ui": "vp run --filter=@packages/ui ui",
     "db:push": "pnpm run tools:env -- db:push",
+    "db:generate": "pnpm run tools:env -- db:generate",
+    "db:migrate": "pnpm run tools:env -- db:migrate",
     "db:studio": "pnpm run tools:env -- db:studio",
     "env:get": "pnpm run tools:env -- get",
     "env:set": "pnpm run tools:env -- set",
     "env:encrypt": "pnpm run tools:env -- encrypt",
     "rc-check": "vp run --recursive rc-check",
     "ready": "vp fmt && vp lint && vp run test -r && vp run build -r",
-    "prepare": "vp config"
+    "prepare": "vp config",
+    "pnpm:prune": "pnpm store prune"
   },
   "devDependencies": {
+    "typescript": "catalog:",
     "vite-plus": "catalog:"
   },
   "engines": {

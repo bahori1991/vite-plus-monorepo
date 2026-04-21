@@ -5,32 +5,40 @@
   "type": "module",
   "exports": {
     "./styles/base.css": "./src/styles/base.css",
-    "./lib/theme-provider": "./src/lib/theme-provider.tsx",
-    "./components/*": "./src/components/*.tsx",
-    "./*.ts": "./src/*.ts"
+    "./lib/*": "./src/lib/*.{ts,tsx}",
+    "./hooks/*": "./src/hooks/*.ts",
+    "./components/*": "./src/components/*.tsx"
   },
   "scripts": {
-    "ui": "vpx shadcn@latest"
+    "ui": "vpx shadcn@latest",
+    "rc-check": "pnpm dlx react-compiler-healthcheck --src 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
     "@fontsource-variable/inter": "catalog:",
     "@tailwindcss/vite": "catalog:",
+    "@tanstack/react-form": "catalog:",
+    "@tanstack/react-form-start": "catalog:",
+    "@tanstack/react-router": "catalog:",
+    "@tanstack/react-start": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "lucide-react": "catalog:",
     "shadcn": "catalog:",
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
-    "tw-animate-css": "catalog:"
+    "tw-animate-css": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
+    "@rolldown/plugin-babel": "catalog:",
     "@tools/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
-    "vite": "catalog:",
+    "babel-plugin-react-compiler": "catalog:",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.19",
     "vite-plus": "catalog:"
   },
   "peerDependencies": {
